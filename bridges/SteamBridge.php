@@ -103,6 +103,13 @@ class SteamBridge extends BridgeAbstract {
 				$item['discount']['oldPrice'] = $appOldPrice;
 				$item['content'] = '<s>' . $appOldPrice . '</s> <b>' . $appPrice . '</b> (' . $appDiscountValue . ')';
 
+				if($this->getInput('only_discount')) {
+
+					$item['title'] = $element->name . ' est en promo (' . $appDiscountValue . ')';
+					$item['content'] = $appPrice . ' au lieu de ' . $appOldPrice;
+
+				}
+
 			}
 
 			$item['enclosures'] = array();
